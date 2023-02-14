@@ -19,7 +19,9 @@ public class BMICalculator extends Application {
     //Declare here to have access
     TextField tf_weight = new TextField();
     TextField tf_height = new TextField();
-    TextField tf_result = new TextField();
+    Label l_showResult = new Label();
+
+    Label l_message = new Label();
 
     Button b_cancel = new Button("Cancel");
     Button b_calculate = new Button("Calculate");
@@ -63,10 +65,12 @@ public class BMICalculator extends Application {
         gridpane.add(l_height,0,2);
         gridpane.add(tf_height, 1,2);
         gridpane.add(l_result,0,3);
-        gridpane.add(tf_result, 1,3);
+        gridpane.add(l_showResult, 1,3);
 
-        gridpane.add(b_cancel, 0, 4);
-        gridpane.add(b_calculate, 1, 4);
+        gridpane.add(l_message,0,4,2,1);
+
+        gridpane.add(b_cancel, 0, 5);
+        gridpane.add(b_calculate, 1, 5);
 
         //Add gridpane to stackpane
         stackPane.getChildren().add(gridpane);
@@ -91,7 +95,14 @@ public class BMICalculator extends Application {
             double weight = Double.valueOf(tf_weight.getText());
             double height = Double.valueOf(tf_height.getText());
             double result = getBMI(weight, height);
-            tf_result.setText(result+"");
+            l_showResult.setText(result+"");
+            String message;
+            if(result<18.5) message="underweight range.";
+            else if(result<24.9) message = "healthy weight range.";
+            else if(result<29.9) message = "overweight range.";
+            else message="the obese range.";
+
+            l_message.setText("You're in the " + message);
         }
     };
 

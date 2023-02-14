@@ -25,8 +25,8 @@ tasks.withType(JavaCompile) {
 }
 
 application {
-    mainModule = 'com.example.bmicalculator'
-    mainClass = 'com.example.bmicalculator.HelloApplication'
+    mainModule = 'com.example.bmialculator'
+    mainClass = 'com.example.bmicalculator.BMICalculator'
 }
 
 javafx {
