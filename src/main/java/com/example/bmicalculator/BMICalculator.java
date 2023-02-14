@@ -45,18 +45,21 @@ public class BMICalculator extends Application {
 
     private StackPane initGUI(){
         StackPane stackPane = new StackPane();
+        stackPane.setStyle("-fx-background-color: #ffe236");
         //Center grid on stackpane
 
         //Create all elements (not in level class because it is only reference, were not using them)
         Label l_title = new Label("BMI Calculator");
+        l_title.setStyle("-fx-font-size: 35px; -fx-text-fill: #b8b8f1;");
         l_title.setAlignment(Pos.CENTER);
 
         //Declare and instance image
         Image img_img = new Image(getClass().getResource("/images/1.jpg").toString());
         //Generate image
         ImageView imgview_img = new ImageView(img_img);
-        imgview_img.setFitHeight(100);
-        imgview_img.setFitWidth(200);
+
+        imgview_img.setFitHeight(150);
+        imgview_img.setFitWidth(250);
 
         Label l_weight = new Label("Weight");
         Label l_height = new Label("Height");
