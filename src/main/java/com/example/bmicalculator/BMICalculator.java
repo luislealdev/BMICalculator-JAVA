@@ -96,15 +96,22 @@ public class BMICalculator extends Application {
             double height = Double.valueOf(tf_height.getText());
             double result = getBMI(weight, height);
             l_showResult.setText(result+"");
-            String message;
-            if(result<18.5) message="underweight range.";
-            else if(result<24.9) message = "healthy weight range.";
-            else if(result<29.9) message = "overweight range.";
-            else message="the obese range.";
 
+            String message = getBMICategory(result);
             l_message.setText("You're in the " + message);
         }
     };
+
+    private String getBMICategory(double bmi){
+        String message;
+
+        if(bmi<18.5) message="underweight range.";
+        else if(bmi<24.9) message = "healthy weight range.";
+        else if(bmi<29.9) message = "overweight range.";
+        else message="the obese range.";
+
+        return message;
+    }
 
     public static void main(String[] args) {
         launch();
